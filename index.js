@@ -29,7 +29,7 @@ app.delete('/api/products/:id', productCtrl.delete);
 
 
 // Connections
-var port = 3000,
+var port = process.env.PORT || 3000,
 	mongoUri = 'mongodb://localhost:27017/ecommerce';
 
 app.listen(port, function() {
