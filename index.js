@@ -4,16 +4,15 @@
 var express = require('express'),
 	bodyParser = require('body-parser'),
 	cors = require('cors'),
-	mongoose = require('mongoose');
-
+	mongoose = require('mongoose'),
+	productCtrl = require('./server/controllers/productCtrl');
 
 var app = express();
 
-var productCtrl = require('./server/controllers/productCtrl');
-
 
 // Middleware
-app.use(bodyParser.json());
+app.use('/', bodyParser.json());
+app.use('/', cors());
 
 
 // Endpoints
@@ -37,6 +36,10 @@ app.listen(port, function() {
 });
 
 mongoose.connect(mongoUri);
+
 mongoose.connection.once('open', function() {
 	console.log('Connected to MondoDB at: ', mongoUri);
 });
+
+
+
