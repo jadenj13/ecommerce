@@ -1,0 +1,17 @@
+{
+  "name": "ecommerce",
+  "description": "Ecommerce",
+  "main": "index.js",
+  "authors": [
+    "jadenj13 <jadenj13@hotmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/jadenj13/ecommerce",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

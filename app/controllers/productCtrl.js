@@ -2,8 +2,10 @@
 
 var Product = require('../models/productModel');
 
+
 module.exports = {
 
+// Endpoint Callbacks
 	create: function(req, res) {
 		var newProduct = new Product(req.body);
 		newProduct.save(function(err, result) {

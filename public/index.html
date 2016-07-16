@@ -3,21 +3,30 @@
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/mainStyles.css">
+    <link rel="stylesheet" href="./libs/bootstrap/dist/css/bootstrap.css">
 	<title>eCommerce</title>
 </head>
 <body>
 
 	<ui-view></ui-view>
 
-	<!-- Angular Library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<!-- Angular Framework -->
+	<script src="./libs/angular/angular.js"></script>
 	<!-- UI Router Library -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+	<script src="./libs/angular-ui-router/release/angular-ui-router.js"></script>
+	<!-- jQuery Library -->
+	<script src="./libs/jQuery/dist/jquery.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="./libs/bootstrap/dist/js/bootstrap.js"></script>
 	<!-- Angular Module -->
 	<script src="./js/app.js"></script>
 	<!-- Angular Controllers -->
 	<script src="./js/controllers/homeCtrl.js"></script>
+	<script src="./js/directives/navigation/navigationCtrl.js"></script>
 	<!-- Angular Services -->
 	<!-- Angular Directives -->
+	<script src="./js/directives/navigation/navigationDir.js"></script>
 </body>
 </html>

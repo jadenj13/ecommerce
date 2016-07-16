@@ -7,7 +7,6 @@ var Schema = mongoose.Schema;
 var productSchema = new Schema({
 	title: {
 		type: String,
-		unique: true,
 		required: true,
 		index: true
 	},
@@ -19,6 +18,19 @@ var productSchema = new Schema({
 		type: Number,
 		required: true,
 		min: 0
+	},
+	img: {
+		type: String,
+		required: true
+	},
+	gender: {
+		type: String,
+		enum: ['male', 'female', 'neutral'],
+		required: true,
+	},
+	category: {
+		type: String,
+		required: true
 	}
 });
 

@@ -5,14 +5,33 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	cors = require('cors'),
 	mongoose = require('mongoose'),
-	productCtrl = require('./server/controllers/productCtrl');
+	passport = require('passport'),
+	productCtrl = require('./app/controllers/productCtrl');
 
+
+// Passport Middleware
+require('./app/config/passport')(passport);
+
+
+// Routes
+var routesApi = require('./app/routes/api');
+
+
+// Configuration
+var db = require('./config/db'),
+	port = require('./config/port');
+
+
+// Express
 var app = express();
 
 
 // Middleware
 app.use('/', bodyParser.json());
 app.use('/', cors());
+app.use('/', express.static('./public'));
+app.use(passport.initialize());
+app.use('/api', routesApi);
 
 
 // Endpoints
@@ -28,8 +47,8 @@ app.delete('/api/products/:id', productCtrl.delete);
 
 
 // Connections
-var port = process.env.PORT || 3000,
-	mongoUri = 'mongodb://localhost:27017/ecommerce';
+var port = port.port,
+	mongoUri = db.uri;
 
 app.listen(port, function() {
 	console.log('Listening on port: ', port);
