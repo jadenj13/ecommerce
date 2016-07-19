@@ -25,7 +25,7 @@ var productSchema = new Schema({
 	},
 	gender: {
 		type: String,
-		enum: ['male', 'female', 'neutral'],
+		enum: ['mens', 'womens', 'boys', 'girls'],
 		required: true,
 	},
 	category: {

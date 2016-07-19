@@ -1,4 +1,5 @@
-angular.module('ecommerceApp').controller('homeCtrl', function($scope) {
+angular.module('ecommerceApp')
+	.controller('homeCtrl', function($scope) {
 
 	
 

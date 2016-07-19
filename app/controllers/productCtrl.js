@@ -22,7 +22,7 @@ module.exports = {
 	},
 
 	readById: function(req, res) {
-		Product.find({id: req.params.id}).exec(function(err, result) {
+		Product.find({_id: req.params.id}).exec(function(err, result) {
 			if (err) return res.status(500).send(err);
 			else res.send(result);
 		});

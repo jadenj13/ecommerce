@@ -12,10 +12,42 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a ui-sref="mens">Mens</a></li>
-                <li><a ui-sref="womens">Womens</a></li>
-                <li><a ui-sref="boys">Boys</a></li>
-                <li><a ui-sref="girls">Girls</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mens <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="category({gender: 'mens', category: 'shirts'})">Shirts</a></li>
+                        <li><a ui-sref="category({gender: 'mens', category: 'pants'})">Pants</a></li>
+                        <li><a ui-sref="category({gender: 'mens', category: 'shorts'})">Shorts</a></li>
+                        <li><a ui-sref="category({gender: 'mens', category: 'shoes'})">Shoes</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Womens <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="category({gender: 'womens', category: 'shirts'})">Shirts</a></li>
+                        <li><a ui-sref="category({gender: 'womens', category: 'pants'})">Pants</a></li>
+                        <li><a ui-sref="category({gender: 'womens', category: 'shorts'})">Shorts</a></li>
+                        <li><a ui-sref="category({gender: 'womens', category: 'shoes'})">Shoes</a></li>
+                    </ul>
+                </li>    
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Boys <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="category({gender: 'boys', category: 'shirts'})">Shirts</a></li>
+                        <li><a ui-sref="category({gender: 'boys', category: 'pants'})">Pants</a></li>
+                        <li><a ui-sref="category({gender: 'boys', category: 'shorts'})">Shorts</a></li>
+                        <li><a ui-sref="category({gender: 'boys', category: 'shoes'})">Shoes</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Girls <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="category({gender: 'girls', category: 'shirts'})">Shirts</a></li>
+                        <li><a ui-sref="category({gender: 'girls', category: 'pants'})">Pants</a></li>
+                        <li><a ui-sref="category({gender: 'girls', category: 'shorts'})">Shorts</a></li>
+                        <li><a ui-sref="category({gender: 'girls', category: 'shoes'})">Shoes</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a>Cart</a></li>
@@ -25,9 +57,7 @@
                         <li><a>Profile</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header">Admin</li>
-                        <li><a>Add Product</a></li>
-                        <li><a>Remove Product</a></li>
-                        <li><a>Update Product</a></li>
+                        <li><a ui-sref="addProduct">Add Product</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a>Log Out</a></li>
                     </ul>
