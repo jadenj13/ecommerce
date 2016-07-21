@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('ecommerceApp')
 	.service('categorySvc', function($http) {
 

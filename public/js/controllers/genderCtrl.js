@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('ecommerceApp')
 	.controller('genderCtrl', function($scope, $stateParams) {
 

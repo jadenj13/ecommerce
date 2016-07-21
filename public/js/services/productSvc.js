@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('ecommerceApp')
 	.service('productSvc', function($http) {
 
@@ -6,5 +8,11 @@ angular.module('ecommerceApp')
 				return result.data;
 			})
 		};
+
+		this.removeProduct = function(id) {
+			return $http.delete('http://localhost:3000/api/products/' + id).then(function(result) {
+				return result;
+			})
+		}
 
 	});

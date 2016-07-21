@@ -11,6 +11,8 @@
         			<h4>{{product.description}}</h4>
         			<h5>${{product.price}}</h5>
         			<p><a class="btn btn-default" role="button">Add to Cart</a></p>
+        			<p><a class="btn btn-default" role="button" ui-sref="add-product({action: 'update'})">Update Product</a></p>
+        			<p><a class="btn btn-default" role="button" ng-click="removeProduct()" ui-sref="home">Remove Product</a></p>
       			</div>				
 			</div>
 		</div>

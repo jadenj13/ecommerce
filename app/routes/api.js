@@ -9,7 +9,7 @@ var express = require('express'),
 
 // Middleware
 var auth = jwt({
-  	secret: jwtSecret,
+  	secret: jwtSecret.secret,
   	userProperty: 'payload'
 });
 

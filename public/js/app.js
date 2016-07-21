@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('ecommerceApp', ['ui.router'])
 	.config(function($stateProvider, $urlRouterProvider) {
 
@@ -10,25 +12,39 @@ angular.module('ecommerceApp', ['ui.router'])
 				controller: 'homeCtrl'
 			})
 			.state('gender', {
-				url: '/:gender',
+				url: '/products/:gender',
 				templateUrl: './views/gender.html',
 				controller: 'genderCtrl'
 			})
 			.state('category', {
-				url: '/:gender/:category',
+				url: '/products/:gender/:category',
 				templateUrl: './views/category.html',
 				controller: 'categoryCtrl'
 			})
 			.state('product', {
-				url: '/:gender/:category/:id',
+				url: '/products/:gender/:category/:id',
 				templateUrl: './views/product.html',
 				controller: 'productCtrl'
 			})
-
-			.state('addProduct', {
-				url: '/admin/add-product',
+			.state('register', {
+				url: '/register',
+				templateUrl: './views/register.html',
+				controller: 'registerCtrl'
+			})
+			.state('login', {
+				url: '/login',
+				templateUrl: './views/login.html',
+				controller: 'loginCtrl'
+			})
+			.state('profile', {
+				url: '/profile',
+				templateUrl: './views/profile.html',
+				controller: 'profileCtrl'
+			})
+			.state('add-product', {
+				url: '/admin/:action',
 				templateUrl: './views/addProduct.html',
 				controller: 'addProductCtrl'
-			})
+			});
 
 	});

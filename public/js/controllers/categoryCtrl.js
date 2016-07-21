@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('ecommerceApp')
 	.controller('categoryCtrl', function($scope, $stateParams, categorySvc) {
 

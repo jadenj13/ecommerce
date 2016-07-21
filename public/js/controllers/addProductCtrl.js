@@ -1,14 +1,7 @@
+'use strict';
+
 angular.module('ecommerceApp')
 	.controller('addProductCtrl', function($scope, addProductSvc) {
-
-		var product = {
-			title: $scope.title,
-			description: $scope.description,
-			price: $scope.price,
-			img: $scope.img,
-			gender: $scope.gender,
-			category: $scope.category
-		}
 
 		$scope.addProduct = function() {
 			var product = {
