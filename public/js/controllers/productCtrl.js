@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ecommerceApp')
-	.controller('productCtrl', function($scope, $stateParams, productSvc) {
+	.controller('productCtrl', function($scope, $stateParams, productSvc, authenticationSvc) {
 
 		// Get Products
 		(function() {
@@ -15,6 +15,16 @@ angular.module('ecommerceApp')
 			productSvc.removeProduct($stateParams.id).then(function(result) {
 				alert('Product removed');
 			})
+		};
+
+		$scope.id = $stateParams.id;
+
+		$scope.isAdmin = function() {
+			if (authenticationSvc.currentUser().admin) {
+				return true;
+			} else {
+				return false;
+			}
 		};
 
 	});

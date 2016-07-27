@@ -2,7 +2,7 @@
 
 // Dependencies
 var mongoose = require('mongoose'),
-	productSchema = require('./productModel')
+	productSchema = require('./productModel'),
 	Schema = mongoose.Schema;
 
 // Orders Schema
@@ -28,3 +28,5 @@ var ordersSchema = new Schema({
 
 // Export schema as a model
 module.exports = mongoose.model('Orders', ordersSchema);
+
+

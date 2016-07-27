@@ -42,7 +42,7 @@ angular.module('ecommerceApp', ['ui.router'])
 				controller: 'profileCtrl'
 			})
 			.state('add-product', {
-				url: '/admin/:action',
+				url: '/admin/:action/:id',
 				templateUrl: './views/addProduct.html',
 				controller: 'addProductCtrl'
 			});

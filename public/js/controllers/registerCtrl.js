@@ -3,8 +3,6 @@
 angular.module('ecommerceApp')
 	.controller('registerCtrl', function($scope, $location, authenticationSvc) {
 
-		// var vm = this;
-
 		$scope.credentials = {
 			name: '',
 			email: '',

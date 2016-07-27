@@ -58,9 +58,9 @@
                     <ul class="dropdown-menu">
                         <li><a ui-sref="profile">Profile</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Admin</li>
-                        <li><a ui-sref="add-product({action: 'create'})">Add Product</a></li>
-                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header" ng-if="isAdmin()">Admin</li>
+                        <li><a ui-sref="add-product({action: 'create'})" ng-if="isAdmin()">Add Product</a></li>
+                        <li role="separator" class="divider" ng-if="isAdmin()"></li>
                         <li><a ng-click="logout()" ui-sref='home'>Log Out</a></li>
                     </ul>
                 </li>

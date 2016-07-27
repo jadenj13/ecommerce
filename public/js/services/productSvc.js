@@ -13,6 +13,6 @@ angular.module('ecommerceApp')
 			return $http.delete('http://localhost:3000/api/products/' + id).then(function(result) {
 				return result;
 			})
-		}
+		};
 
 	});

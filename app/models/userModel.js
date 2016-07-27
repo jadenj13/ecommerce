@@ -21,7 +21,8 @@ var userSchema = new mongoose.Schema({
   	hash: String,
   	salt: String,
     cart: [cart],
-    orders: []
+    orders: [],
+    admin: Boolean
 });
 
 
@@ -43,11 +44,13 @@ userSchema.methods.generateJwt = function() {
 	    _id: this._id,
 	    email: this.email,
 	    name: this.name,
+        admin: this.admin,
 	    exp: parseInt(expiry.getTime() / 1000),
 	}, jwtSecret.secret);
 };
 
 module.exports = mongoose.model('User', userSchema);
+
 
 
 

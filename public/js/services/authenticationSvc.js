@@ -35,7 +35,8 @@ angular.module('ecommerceApp')
 
 				return {
 					name: payload.name,
-					email: payload.email
+					email: payload.email,
+					admin: payload.admin
 				};
 			}
 		};
