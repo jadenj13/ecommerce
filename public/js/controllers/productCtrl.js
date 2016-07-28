@@ -27,4 +27,16 @@ angular.module('ecommerceApp')
 			}
 		};
 
+		var productForCart = {
+			product: [{
+				item: $stateParams.id
+			}]
+		};
+
+		$scope.postToCart = function() {
+			productSvc.postToCart(authenticationSvc.currentUser().user_id, productForCart).then(function(result) {
+				console.log(result);
+			});
+		};
+
 	});

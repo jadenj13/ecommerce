@@ -45,6 +45,11 @@ angular.module('ecommerceApp', ['ui.router'])
 				url: '/admin/:action/:id',
 				templateUrl: './views/addProduct.html',
 				controller: 'addProductCtrl'
+			})
+			.state('cart', {
+				url: '/cart',
+				templateUrl: './views/cart.html',
+				controller: 'cartCtrl'
 			});
 
 	});

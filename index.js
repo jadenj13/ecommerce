@@ -6,7 +6,8 @@ var express = require('express'),
 	cors = require('cors'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
-	productCtrl = require('./app/controllers/productCtrl');
+	productCtrl = require('./app/controllers/productCtrl'),
+	ordersCtrl = require('./app/controllers/ordersCtrl');
 
 
 // Passport Middleware
@@ -36,14 +37,12 @@ app.use('/api', routesApi);
 
 // Endpoints
 app.post('/api/products', productCtrl.create);
-
 app.get('/api/products', productCtrl.readAll);
-
 app.get('/api/products/:id', productCtrl.readById);
-
 app.put('/api/products/:id', productCtrl.update);
-
 app.delete('/api/products/:id', productCtrl.delete);
+
+app.post('/api/cart/:user_id', ordersCtrl.postToCart);
 
 
 // Connections

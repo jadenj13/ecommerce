@@ -10,7 +10,7 @@
         			<h3>{{product.title}}</h3>
         			<h4>{{product.description}}</h4>
         			<h5>${{product.price}}</h5>
-        			<p><a class="btn btn-default" role="button">Add to Cart</a></p>
+        			<p><a class="btn btn-default" role="button" ng-click="postToCart()">Add to Cart</a></p>
         			<p><a class="btn btn-default" role="button" ui-sref="add-product({action: 'update', id: id})" ng-if="isAdmin()">Update Product</a></p>
         			<p><a class="btn btn-default" role="button" ng-click="removeProduct()" ui-sref="home" ng-if="isAdmin()">Remove Product</a></p>
       			</div>				
