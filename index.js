@@ -47,7 +47,7 @@ app.post('/api/cart/:user_id', ordersCtrl.postToCart);
 
 // Connections
 var port = process.env.PORT || port.port,
-	mongoUri = process.env.MONGODB_URI || db.uri;
+	mongoUri = process.env.MONGODB_URI;
 
 app.listen(port, function() {
 	console.log('Listening on port: ', port);
