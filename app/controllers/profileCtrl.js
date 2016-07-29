@@ -10,7 +10,8 @@ function read(req, res) {
     	});
   	} else {
     	User
-      		.findById(req.payload._id)
+            .findById(req.payload._id)
+            .populate('cart.item')
       		.exec(function(err, user) {
         		res.status(200).json(user);
       	});

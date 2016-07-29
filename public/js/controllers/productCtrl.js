@@ -27,10 +27,8 @@ angular.module('ecommerceApp')
 			}
 		};
 
-		var productForCart = {
-			product: [{
-				item: $stateParams.id
-			}]
+		var productForCart = {	
+			item: $stateParams.id
 		};
 
 		$scope.postToCart = function() {
@@ -40,3 +38,4 @@ angular.module('ecommerceApp')
 		};
 
 	});
+	

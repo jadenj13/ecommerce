@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ecommerceApp')
-	.controller('categoryCtrl', function($scope, $stateParams, categorySvc) {
+	.controller('categoryCtrl', function($scope, $stateParams, categorySvc, authenticationSvc, productSvc) {
 
 		($scope.getProducts = function() {
 			categorySvc.getProducts().then(function(results) {
@@ -13,5 +13,11 @@ angular.module('ecommerceApp')
 				}
 			})
 		})();
+
+		$scope.postToCart = function(item_id) {
+			productSvc.postToCart(authenticationSvc.currentUser().user_id, { item: item_id }).then(function(result) {
+				console.log(result);
+			});
+		};
 
 	});

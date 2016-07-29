@@ -6,19 +6,17 @@ var mongooose = require('mongoose'),
 
 // Cart Schema
 var cartSchema = new Schema({
-	product: [{
-		item: {
-			type: Schema.Types.ObjectId,
-			ref: 'Product',
-			required: true
-		},
-		quantity: {
-			type: Number,
-			required: true,
-			default: 1,
-			min: 1
-		}
-	}]
+	item: {
+		type: Schema.Types.ObjectId,
+		ref: 'Products',
+		required: true
+	},
+	quantity: {
+		type: Number,
+		required: true,
+		default: 1,
+		min: 1
+	}
 });
 
 // Export Cart Schema

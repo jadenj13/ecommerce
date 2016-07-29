@@ -52,7 +52,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a ng-if="!isLoggedIn" ui-sref="register">Register</a></li>
                 <li><a ng-if="!isLoggedIn" ui-sref="login">Login</a></li>
-                <li><a>Cart</a></li>
+                <li><a ui-sref="cart">Cart</a></li>
                 <li class="dropdown" ng-if="isLoggedIn">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{currentUser.name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">

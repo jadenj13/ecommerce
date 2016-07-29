@@ -44,7 +44,6 @@ angular.module('ecommerceApp')
 
 		var register = function(user) {
 			return $http.post('http://localhost:3000/api/register', user).then(function(result) {
-				console.log(result)
 				saveToken(result.data.token);
 			});
 		};

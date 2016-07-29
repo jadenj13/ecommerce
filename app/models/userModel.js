@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 	crypto = require('crypto'),
 	jwt = require('jsonwebtoken'),
 	jwtSecret = require('../../config/jwt'),
-  cart = require('./cartSchema');
+    cart = require('./cartSchema');
 
 
 
@@ -20,7 +20,7 @@ var userSchema = new mongoose.Schema({
   	},
   	hash: String,
   	salt: String,
-    cart: [cart],
+    cart: cart,
     orders: [],
     admin: Boolean
 });
