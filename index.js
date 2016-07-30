@@ -18,8 +18,7 @@ var routesApi = require('./app/routes/api');
 
 
 // Configuration
-var db = require('./config/db'),
-	port = require('./config/port');
+var port = require('./config/port');
 
 
 // Express
@@ -53,9 +52,6 @@ app.listen(port, function() {
 
 mongoose.connect(mongoUri);
 
-mongoose.connection.once('open', function() {
-	console.log('Connected to MondoDB at: ', mongoUri);
-});
 
 
 
