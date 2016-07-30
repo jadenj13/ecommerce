@@ -15,9 +15,11 @@ angular.module('ecommerceApp')
 		})();
 
 		$scope.postToCart = function(item_id) {
-			productSvc.postToCart(authenticationSvc.currentUser().user_id, { item: item_id }).then(function(result) {
-				console.log(result);
-			});
+			if (authenticationSvc.isLoggedIn) {
+				productSvc.postToCart(authenticationSvc.currentUser().user_id, { item: item_id }).then(function(result) {
+					console.log(result);
+				});
+			} 
 		};
 
 	});

@@ -32,9 +32,11 @@ angular.module('ecommerceApp')
 		};
 
 		$scope.postToCart = function() {
-			productSvc.postToCart(authenticationSvc.currentUser().user_id, productForCart).then(function(result) {
-				console.log(result);
-			});
+			if (authenticationSvc.isLoggedIn) {
+				productSvc.postToCart(authenticationSvc.currentUser().user_id, productForCart).then(function(result) {
+					console.log(result);
+				});
+			}
 		};
 
 	});
