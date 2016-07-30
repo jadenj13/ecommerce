@@ -3,13 +3,12 @@
 // Dependencies
 var express = require('express'),
 	router = express.Router(),
-	jwt = require('express-jwt'),
-	jwtSecret = require('../../config/jwt');
+	jwt = require('express-jwt');
 
 
 // Middleware
 var auth = jwt({
-  	secret: jwtSecret.secret,
+  	secret: process.env.SECRET,
   	userProperty: 'payload'
 });
 
