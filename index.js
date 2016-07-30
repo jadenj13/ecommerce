@@ -3,7 +3,6 @@
 // Installing Dependencies
 var express = require('express'),
 	bodyParser = require('body-parser'),
-	cors = require('cors'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
 	productCtrl = require('./app/controllers/productCtrl'),
@@ -29,7 +28,6 @@ var app = express();
 
 // Middleware
 app.use('/', bodyParser.json());
-app.use('/', cors());
 app.use('/', express.static('./public'));
 app.use(passport.initialize());
 app.use('/api', routesApi);
