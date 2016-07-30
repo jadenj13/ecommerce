@@ -36,6 +36,8 @@ angular.module('ecommerceApp')
 				productSvc.postToCart(authenticationSvc.currentUser().user_id, productForCart).then(function(result) {
 					console.log(result);
 				});
+			} else {
+				localStorage.setItem(productForCart);
 			}
 		};
 
