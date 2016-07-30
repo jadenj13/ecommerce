@@ -32,7 +32,7 @@ angular.module('ecommerceApp')
 		};
 
 		$scope.postToCart = function() {
-			if (authenticationSvc.isLoggedIn) {
+			if (authenticationSvc.isLoggedIn()) {
 				productSvc.postToCart(authenticationSvc.currentUser().user_id, productForCart).then(function(result) {
 					console.log(result);
 				});

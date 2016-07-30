@@ -15,7 +15,7 @@ angular.module('ecommerceApp')
 		})();
 
 		$scope.postToCart = function(item_id) {
-			if (authenticationSvc.isLoggedIn) {
+			if (authenticationSvc.isLoggedIn()) {
 				productSvc.postToCart(authenticationSvc.currentUser().user_id, { item: item_id }).then(function(result) {
 					console.log(result);
 				});
