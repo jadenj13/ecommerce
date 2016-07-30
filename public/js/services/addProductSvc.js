@@ -5,11 +5,11 @@ angular.module('ecommerceApp')
 
 		this.addProduct = function(product) {
 			if ($stateParams.action === 'create') {
-				return $http.post('http://localhost:3000/api/products', product).then(function(response) {
+				return $http.post('/api/products', product).then(function(response) {
 					console.log(response);
 				})
 			} else if ($stateParams.action === 'update') {
-				return $http.put('http://localhost:3000/api/products/' + $stateParams.id, product).then(function(response) {
+				return $http.put('/api/products/' + $stateParams.id, product).then(function(response) {
 					console.log(response);
 				})
 			}
@@ -17,7 +17,7 @@ angular.module('ecommerceApp')
 
 		this.getProduct = function() {
 			if ($stateParams.id) {
-				return $http.get('http://localhost:3000/api/products/' + $stateParams.id).then(function(result) {
+				return $http.get('/api/products/' + $stateParams.id).then(function(result) {
 					return result.data[0];
 				});
 			}

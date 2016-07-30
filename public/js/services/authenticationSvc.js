@@ -43,13 +43,13 @@ angular.module('ecommerceApp')
 		};
 
 		var register = function(user) {
-			return $http.post('http://localhost:3000/api/register', user).then(function(result) {
+			return $http.post('/api/register', user).then(function(result) {
 				saveToken(result.data.token);
 			});
 		};
 
 		var login = function(user) {
-			return $http.post('http://localhost:3000/api/login', user).then(function(result) {
+			return $http.post('/api/login', user).then(function(result) {
 				saveToken(result.data.token);
 			});
 		};
