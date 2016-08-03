@@ -13,8 +13,8 @@ angular.module('ecommerceApp')
 
 			$scope.total = $scope.cartProducts.reduce(function(total, current) {
 				var price = current.item.price;
-				console.log(price);
-				return total + current.item.price;
+				console.log(total);
+				return total + price;
 			});
 		});
 
