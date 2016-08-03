@@ -10,6 +10,10 @@ angular.module('ecommerceApp')
 					$scope.cartProducts.push(result.data.cart[key]);
 				}
 			}
+
+			$scope.total = $scope.cartProducts.reduce(function(total, current) {
+				return total + current.item.price;
+			});
 		});
 
 });
