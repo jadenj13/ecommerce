@@ -21,11 +21,9 @@ angular.module('ecommerceApp')
 		} else {
 			for (var key in window.localStorage) {
 				$scope.cartProducts = [];
-				console.log(localStorage.key);
-				if (localStorage.key) {
-					$scope.cartProducts.push(localStorage.getItem(key));
-				}
+				$scope.cartProducts.push(localStorage.getItem(key));
 			}
+			console.log($scope.cartProducts);
 		}
 });
 	
