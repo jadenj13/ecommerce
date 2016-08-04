@@ -21,9 +21,8 @@ angular.module('ecommerceApp')
 		} else {
 			for (var key in localStorage) {
 				$scope.cartProducts = [];
-				$scope.cartProducts.push(localStorage.getItem(key));
+				$scope.cartProducts.push(JSON.parse(localStorage.getItem(key)));
 			}
-			console.log($scope.cartProducts);
 		}
 });
 	
