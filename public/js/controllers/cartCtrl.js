@@ -1,22 +1,31 @@
 'use strict';
 
 angular.module('ecommerceApp')
-	.controller('cartCtrl', function($scope, profileSvc) {
+	.controller('cartCtrl', function($scope, profileSvc, authenticationSvc) {
 
-		profileSvc.getProfile().then(function(result) {
-			$scope.cartProducts = [];
-			for (var key in result.data.cart) {
-				if (!isNaN(key)) {
-					$scope.cartProducts.push(result.data.cart[key]);
+		if (authenticationSvc.isLoggedIn()) {
+			profileSvc.getProfile().then(function(result) {
+				$scope.cartProducts = [];
+				for (var key in result.data.cart) {
+					if (!isNaN(key)) {
+						$scope.cartProducts.push(result.data.cart[key]);
+					}
+				}
+
+				$scope.total = $scope.cartProducts.reduce(function(total, current) {
+					var price = current.item.price;
+					var numTotal = total.item.price;
+					return numTotal + price;
+				});
+			});
+		} else {
+			for (var key in window.localStorage) {
+				$scope.cartProducts = [];
+				console.log(localStorage.key);
+				if (localStorage.key) {
+					$scope.cartProducts.push(localStorage.getItem(key));
 				}
 			}
-
-			$scope.total = $scope.cartProducts.reduce(function(total, current) {
-				var price = current.item.price;
-				var numTotal = total.item.price;
-				return numTotal + price;
-			});
-		});
-
+		}
 });
 	
