@@ -19,7 +19,7 @@ angular.module('ecommerceApp')
 				});
 			});
 		} else {
-			for (var key in window.localStorage) {
+			for (var key in localStorage) {
 				$scope.cartProducts = [];
 				$scope.cartProducts.push(localStorage.getItem(key));
 			}
