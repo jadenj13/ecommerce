@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ecommerceApp')
-	.controller('cartCtrl', function($scope, profileSvc, authenticationSvc) {
+	.controller('cartCtrl', function($scope, profileSvc, authenticationSvc, productSvc) {
 
 		if (authenticationSvc.isLoggedIn()) {
 			profileSvc.getProfile().then(function(result) {
@@ -21,9 +21,10 @@ angular.module('ecommerceApp')
 		} else {
 			for (var key in localStorage) {
 				$scope.cartProducts = [];
-				$scope.cartProducts.push(JSON.parse(localStorage.getItem(key)));
-				console.log($scope.cartProducts);
-			}
+				productSvc.getProduct(localStorage.getItem(key)).then(function(result) {
+					$scope.cartProducts.push(result);
+				});
+			} console.log($scope.cartProducts);
 		}
 });
 	
