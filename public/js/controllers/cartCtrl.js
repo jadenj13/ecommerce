@@ -19,8 +19,8 @@ angular.module('ecommerceApp')
 				});
 			});
 		} else {
+			$scope.cartProducts = [];
 			for (var key in localStorage) {
-				$scope.cartProducts = [];
 				productSvc.getProduct(localStorage.getItem(key)).then(function(result) {
 					$scope.cartProducts.push(result);
 				});
