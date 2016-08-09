@@ -13,9 +13,11 @@ angular.module('ecommerceApp')
 
 				for (var key in localStorage) {
 					console.log(key);
-					productSvc.postToCart(authenticationSvc.currentUser().user_id, { item: key} ).then(function(result) {
-						console.log(result);
-					});
+					if (key !== 'mean-token') {
+						productSvc.postToCart(authenticationSvc.currentUser().user_id, { item: localStorage.key} ).then(function(result) {
+							console.log(result);
+						});
+					}
 				}
 
 				$location.path('home');
