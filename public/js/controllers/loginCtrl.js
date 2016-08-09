@@ -15,7 +15,9 @@ angular.module('ecommerceApp')
 					console.log(key);
 					if (key !== 'mean-token') {
 						productSvc.postToCart(authenticationSvc.currentUser().user_id, { item: localStorage[key]} ).then(function(result) {
-							//localStorage.removeItem(key);
+							(function(key) {
+								localStorage.removeItem(key);
+							})(key);
 						});
 					}
 				}
