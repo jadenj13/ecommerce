@@ -5,6 +5,7 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
+	cors = require('cors'),
 	productCtrl = require('./app/controllers/productCtrl'),
 	ordersCtrl = require('./app/controllers/ordersCtrl');
 
@@ -27,10 +28,13 @@ var app = express();
 
 // Middleware
 app.use('/', bodyParser.json());
+app.use('/', cors());
 app.use('/', express.static('./public'));
 app.use(passport.initialize());
 app.use('/api', routesApi);
 
+
+// Endpoints
 app.post('/api/products', productCtrl.create);
 app.get('/api/products', productCtrl.readAll);
 app.get('/api/products/:id', productCtrl.readById);
