@@ -12,7 +12,8 @@ angular.module('ecommerceApp')
 			authenticationSvc.login($scope.credentials).then(function() {
 
 				for (var key in localStorage) {
-					productSvc.postToCart(authenticationSvc.currentUser().user_id, key).then(function(result) {
+					console.log(key);
+					productSvc.postToCart(authenticationSvc.currentUser().user_id, { item: key} ).then(function(result) {
 						console.log(result);
 					});
 				}
