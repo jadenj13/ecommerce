@@ -25,6 +25,11 @@ angular.module('ecommerceApp')
 					console.log($scope.cartProducts);
 				});
 			}
+
+				$scope.total = $scope.cartProducts.reduce(function(total, current) {
+					var price = current.item.price;
+					return total + price;
+				}, 0);
 		}
 });
 	
