@@ -5,7 +5,6 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
-	// cors = require('cors'),
 	productCtrl = require('./app/controllers/productCtrl'),
 	ordersCtrl = require('./app/controllers/ordersCtrl');
 
@@ -27,11 +26,18 @@ var app = express();
 
 
 // Middleware
-// app.use('/', cors());
 app.use('/', bodyParser.json());
 app.use('/', express.static('./public'));
 app.use(passport.initialize());
 app.use('/api', routesApi);
+
+app.post('/api/products', productCtrl.create);
+app.get('/api/products', productCtrl.readAll);
+app.get('/api/products/:id', productCtrl.readById);
+app.put('/api/products/:id', productCtrl.update);
+app.delete('/api/products/:id', productCtrl.delete);
+app.post('/api/cart/:user_id', ordersCtrl.postToCart);
+
 
 
 // Connections

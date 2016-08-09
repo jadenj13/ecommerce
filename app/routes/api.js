@@ -6,6 +6,7 @@ var express = require('express'),
 	jwt = require('express-jwt'),
 	secret = require('../../config/jwt');
 
+var app = express();
 
 // Middleware
 var auth = jwt({
@@ -25,12 +26,12 @@ var profileCtrl = require('../controllers/profileCtrl'),
 router.get('/profile', auth, profileCtrl.read);
 router.post('/register', authCtrl.register);
 router.post('/login', authCtrl.login);
-router.post('/api/products', productCtrl.create);
-router.get('/api/products', productCtrl.readAll);
-router.get('/api/products/:id', productCtrl.readById);
-router.put('/api/products/:id', productCtrl.update);
-router.delete('/api/products/:id', productCtrl.delete);
-router.post('/api/cart/:user_id', ordersCtrl.postToCart);
+// router.post('/api/products', productCtrl.create);
+// router.get('/api/products', productCtrl.readAll);
+// router.get('/api/products/:id', productCtrl.readById);
+// router.put('/api/products/:id', productCtrl.update);
+// router.delete('/api/products/:id', productCtrl.delete);
+// router.post('/api/cart/:user_id', ordersCtrl.postToCart);
 
 module.exports = router;
 
