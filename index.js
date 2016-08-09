@@ -5,6 +5,7 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
+	cors = require('cors'),
 	productCtrl = require('./app/controllers/productCtrl'),
 	ordersCtrl = require('./app/controllers/ordersCtrl');
 
@@ -26,6 +27,7 @@ var app = express();
 
 
 // Middleware
+app.use('/', cors());
 app.use('/', bodyParser.json());
 app.use('/', express.static('./public'));
 app.use(passport.initialize());
