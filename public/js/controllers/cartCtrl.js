@@ -29,7 +29,7 @@ angular.module('ecommerceApp')
 				$scope.total = $scope.cartProducts.reduce(function(total, current) {
 					var price = current.item.price;
 					return total + price;
-				}, 0);
+				});
 		}
 });
 	
