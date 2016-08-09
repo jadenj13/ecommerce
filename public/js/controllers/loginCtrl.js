@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ecommerceApp')
-	.controller('loginCtrl', function($scope, $location, authenticationSvc) {
+	.controller('loginCtrl', function($scope, $location, authenticationSvc, productSvc) {
 
 		$scope.credentials = {
 			email: '',
@@ -10,6 +10,13 @@ angular.module('ecommerceApp')
 
 		$scope.onSubmit = function() {
 			authenticationSvc.login($scope.credentials).then(function() {
+
+				for (var key in localStorage) {
+					productSvc.postToCart(authenticationSvc.currentUser().user_id, key).then(result) {
+						console.log(result);
+					}
+				}
+
 				$location.path('home');
 			});
 		};

@@ -4,11 +4,9 @@ angular.module('ecommerceApp')
 	.controller('productCtrl', function($scope, $stateParams, productSvc, authenticationSvc) {
 
 		// Get Products
-		(function() {
-			productSvc.getProduct($stateParams.id).then(function(result) {
-				$scope.product = result[0];
-			});
-		})();
+		productSvc.getProduct($stateParams.id).then(function(result) {
+			$scope.product = result[0];
+		});
 
 		// Remove Product
 		$scope.removeProduct = function() {
