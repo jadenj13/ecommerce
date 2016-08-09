@@ -37,7 +37,7 @@ angular.module('ecommerceApp')
 					console.log(result);
 				});
 			} else {
-				localStorage.setItem(new Date, productForCart);
+				localStorage.setItem(new Date, JSON.stringify(productForCart));
 			}
 		};
 
