@@ -5,11 +5,11 @@
 	<div class="column" ng-repeat="product in cartProducts">
 		<div class="col-sm-6 col-md-3">
 			<div class="thumbnail">
-				<img ng-src="{{product.item.img}}">
+				<img ng-src="{{product.item[0].img}}">
 				<div class="caption">
-        			<h3>{{product.item.title}}</h3>
-        			<h4>{{product.item.description}}</h4>
-        			<h5>${{product.item.price}}</h5>
+        			<h3>{{product.item[0].title}}</h3>
+        			<h4>{{product.item[0].description}}</h4>
+        			<h5>${{product.item[0].price}}</h5>
       			</div>				
 			</div>
 		</div>
