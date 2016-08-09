@@ -23,7 +23,7 @@ angular.module('ecommerceApp')
 			for (var key in localStorage) {
 				productSvc.getProduct(localStorage.getItem(JSON.parse(key).item)).then(function(result) {
 					console.log(result);
-					$scope.cartProducts.push(result);
+					$scope.cartProducts.push({item: result});
 				});
 			}
 		}
