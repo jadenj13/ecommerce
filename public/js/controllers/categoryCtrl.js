@@ -14,12 +14,14 @@ angular.module('ecommerceApp')
 			})
 		})();
 
-		$scope.postToCart = function(item_id) {
+		$scope.postToCart = function() {
 			if (authenticationSvc.isLoggedIn()) {
-				productSvc.postToCart(authenticationSvc.currentUser().user_id, { item: item_id }).then(function(result) {
+				productSvc.postToCart(authenticationSvc.currentUser().user_id, productForCart).then(function(result) {
 					console.log(result);
 				});
-			} 
+			} else {
+				localStorage.setItem(new Date, productForCart.item);
+			}
 		};
 
 	});
