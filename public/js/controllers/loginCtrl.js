@@ -12,9 +12,9 @@ angular.module('ecommerceApp')
 			authenticationSvc.login($scope.credentials).then(function() {
 
 				for (var key in localStorage) {
-					productSvc.postToCart(authenticationSvc.currentUser().user_id, key).then(result) {
+					productSvc.postToCart(authenticationSvc.currentUser().user_id, key).then(function(result) {
 						console.log(result);
-					}
+					});
 				}
 
 				$location.path('home');
