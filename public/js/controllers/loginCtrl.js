@@ -12,10 +12,10 @@ angular.module('ecommerceApp')
 			authenticationSvc.login($scope.credentials).then(function() {
 
 				for (var key in localStorage) {
-					console.log(localStorage[key]);
+					console.log(key);
 					if (key !== 'mean-token') {
 						productSvc.postToCart(authenticationSvc.currentUser().user_id, { item: localStorage[key]} ).then(function(result) {
-							localStorage.removeItem(key);
+							//localStorage.removeItem(key);
 						});
 					}
 				}
