@@ -23,13 +23,14 @@ angular.module('ecommerceApp')
 				productSvc.getProduct(localStorage.getItem(key)).then(function(result) {
 					$scope.cartProducts.push({item: result[0]});
 					console.log($scope.cartProducts);
+
+					$scope.total = $scope.cartProducts.reduce(function(total, current) {
+						var price = current.item.price;
+						return total + price;
+					}, 0);
+					
 				});
 			}
-
-				$scope.total = $scope.cartProducts.reduce(function(total, current) {
-					var price = current.item.price;
-					return total + price;
-				});
 		}
 });
 	
