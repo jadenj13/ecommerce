@@ -9,7 +9,7 @@
       			<div class="caption">
         			<h3>{{product.title}}</h3>
         			<h5>${{product.price}}</h5>
-        			<p><a class="btn btn-default" role="button" ng-click="postToCart(JSON.stringify(product._id))" ui-sref="cart">Add to Cart</a></p>
+        			<p><a class="btn btn-default" role="button" ng-click="postToCart(product._id)" ui-sref="cart">Add to Cart</a></p>
         			<p><a class="btn btn-default" role="button" ui-sref="product({gender: product.gender, category: product.category, id: product._id})">Details</a></p>
       			</div>
     		</div>

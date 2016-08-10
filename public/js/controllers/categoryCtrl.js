@@ -18,7 +18,7 @@ angular.module('ecommerceApp')
 					console.log(result);
 				});
 			} else {
-				localStorage.setItem(new Date, {item_id});
+				localStorage.setItem(new Date, item_id);
 			}
 		};
 
