@@ -34,7 +34,7 @@ angular.module('ecommerceApp')
 		}
 
 		$scope.removeFromCart = function(product) {
-			cartSvc.removeFromCart(authenticationSvc.currentUser().user_id, JSON.stringify(product)).then(function(result) {
+			cartSvc.removeFromCart(authenticationSvc.currentUser().user_id, product).then(function(result) {
 				console.log(result);
 				$state.reload();
 			});
