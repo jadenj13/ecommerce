@@ -42,8 +42,6 @@ app.put('/api/products/:id', productCtrl.update);
 app.delete('/api/products/:id', productCtrl.delete);
 app.post('/api/cart/:user_id', ordersCtrl.postToCart);
 app.put('/api/cart/:user_id', ordersCtrl.deleteFromCart);
-app.put('/api/cart/:user_id', ordersCtrl.readCart);
-
 
 
 // Connections
