@@ -8,6 +8,7 @@ var mongoose = require('mongoose'),
 
 
 
+
 var userSchema = new mongoose.Schema({
   	email: {
 	    type: String,
@@ -21,7 +22,7 @@ var userSchema = new mongoose.Schema({
   	hash: String,
   	salt: String,
     cart: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Products',
         required: true
     }],
@@ -48,7 +49,7 @@ userSchema.methods.generateJwt = function() {
 	    _id: this._id,
 	    email: this.email,
 	    name: this.name,
-      admin: this.admin,
+        admin: this.admin,
 	    exp: parseInt(expiry.getTime() / 1000),
 	}, jwtSecret.secret);
 };
