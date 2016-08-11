@@ -12,9 +12,22 @@ module.exports = {
 	},
 
 	deleteFromCart: function(req, res) {
-		User.findByIdAndUpdate(req.params.user_id, {$pull: {cart: req.params.id}}, function(err, result) {
+		User.findById(req.params.user_id, function(err, result) {
 			if (err) return res.status(500).send(err);
-			else res.send(result);
+			result.cart.forEach(function(cartItem, index) {
+				if (req === cartItem.item) {
+					result.cart.splice(index, 1);
+				}
+			});
+
+			saveUser(result, req, res);
+
+			function saveUser(userToSave, req, res) {
+				userToSave.save(function(err, result) {
+					if (err) res.status(500).send(err);
+					else res.send(result);
+				});
+			}
 		})
 	}
 
