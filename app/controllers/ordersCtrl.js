@@ -12,8 +12,7 @@ module.exports = {
 	},
 
 	deleteFromCart: function(req, res) {
-		console.log(req.body);
-		User.findByIdAndUpdate(req.params.user_id, {$pull: {cart: req.body}}, function(err, result) {
+		User.findByIdAndUpdate(req.params.user_id, {$pull: {cart: req.params.id}}, function(err, result) {
 			if (err) return res.status(500).send(err);
 			else res.send(result);
 		})
