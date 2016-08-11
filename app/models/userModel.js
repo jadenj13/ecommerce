@@ -4,8 +4,7 @@ var mongoose = require('mongoose'),
 	crypto = require('crypto'),
 	jwt = require('jsonwebtoken'),
 	jwtSecret = require('../../config/jwt'),
-    //cart = require('./cartSchema');
-
+    cart = require('./cartSchema');
 
 
 
@@ -21,11 +20,7 @@ var userSchema = new mongoose.Schema({
   	},
   	hash: String,
   	salt: String,
-    cart: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Products',
-        required: true
-    }],
+    cart: cart,
     orders: [],
     admin: Boolean
 });
@@ -49,7 +44,7 @@ userSchema.methods.generateJwt = function() {
 	    _id: this._id,
 	    email: this.email,
 	    name: this.name,
-        admin: this.admin,
+      admin: this.admin,
 	    exp: parseInt(expiry.getTime() / 1000),
 	}, jwtSecret.secret);
 };
