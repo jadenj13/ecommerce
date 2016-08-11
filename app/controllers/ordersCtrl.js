@@ -16,6 +16,13 @@ module.exports = {
 			if (err) return res.status(500).send(err);
 			else res.send(result);
 		});
+	},
+
+	readCart: function(req, res) {
+		User.find().exec(function(err, result) {
+			if (err) return res.status(500).send(err);
+			else res.send(result);
+		});
 	}
 
 }
