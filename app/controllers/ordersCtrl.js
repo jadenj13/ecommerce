@@ -10,9 +10,9 @@ function postToCart(req, res) {
 }
 
 function deleteFromCart(req, res) {
-	// User.findByIdAndUpdate(req.params.user_id, {$pull: {cart: req.body}}, function(err, result) {
-	// 	if (err) return res.status(500).send(err);
-	// 	else res.send(result);
+	User.findByIdAndUpdate(req.params.user_id, {$pull: {cart: req.body.toString()}}, function(err, result) {
+		if (err) return res.status(500).send(err);
+		else res.send(result);
 
 
 		// function(err, result) {
@@ -29,7 +29,7 @@ function deleteFromCart(req, res) {
 		// 	myUser.cart.splice(foundItem, 1);
 		// }
 		// saveUser(myUser, req, res);
-	// });
+	});
 	// function saveUser(userToSave, req, res) {
 	// 	userToSave.save(function(err, result) {
 	// 		if (err) { res.status(500).send(err) }
