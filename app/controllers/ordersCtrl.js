@@ -2,16 +2,14 @@
 
 var User = require('../models/userModel');
 
-module.exports = {
-
-	postToCart: function(req, res) {
+	function postToCart(req, res) {
 		User.findByIdAndUpdate(req.params.user_id, {$push: {cart: req.body}}, function(err, result) {
 			if (err) return res.status(500).send(err);
 			else res.send(result);
 		});
-	},
+	}
 
-	deleteFromCart: function(req, res) {
+	function deleteFromCart(req, res) {
 		User.findById(req.params._id, function(err, result) {
 			if (err) { res.status(500).send(err) }
 			var myUser = res;
@@ -33,6 +31,11 @@ module.exports = {
 				else { res.send(result) }
 			})
 		}
+	}
+
+	module.exports = {
+		postToCart: postToCart,
+		deleteFromCart: deleteFromCart
 	}
 
 }
