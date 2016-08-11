@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ecommerceApp')
-	.controller('cartCtrl', function($scope, profileSvc, authenticationSvc, productSvc) {
+	.controller('cartCtrl', function($scope, $state, profileSvc, authenticationSvc, productSvc, cartSvc) {
 
 		if (authenticationSvc.isLoggedIn()) {
 			profileSvc.getProfile().then(function(result) {
@@ -28,9 +28,16 @@ angular.module('ecommerceApp')
 						var price = current.item.price;
 						return total + price;
 					}, 0);
-					
+
 				});
 			}
 		}
+
+		$scope.removeFromCart = function(product) {
+			cartSvc.removeFromCart(authenticationSvc.currentUser().user_id, product).then(function(result) {
+				console.log(result);
+				$state.reload();
+			});
+		};
 });
 	

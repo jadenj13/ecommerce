@@ -11,4 +11,11 @@ module.exports = {
 		});
 	}
 
+	deleteFromCart: function(req, res) {
+		User.findByIdAndUpdate(req.params.user_id, {$pull: {cart: req.body}}, function(err, result) {
+			if (err) return res.status(500).send(err);
+			else res.send(result);
+		})
+	}
+
 };

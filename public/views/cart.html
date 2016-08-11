@@ -10,7 +10,7 @@
         			<h3>{{product.item.title}}</h3>
         			<h4>{{product.item.description}}</h4>
         			<h5>${{product.item.price}}</h5>
-        			<p>Remove from cart</p>
+        			<p><a ng-click="removeFromCart(product.item._id)">Remove from cart</a></p>
       			</div>				
 			</div>
 		</div>
