@@ -63,6 +63,7 @@ app.put('/api/cart/:user_id', function(req, res) {
 				else { res.send(result) }
 			})
 		});
+	});
 
 
 // Connections
