@@ -4,6 +4,7 @@ angular.module('ecommerceApp')
 	.service('cartSvc', function($http) {
 
 		this.removeFromCart = function(user_id, product) {
+			console.log(product);
 			$http.put('/api/cart/' + user_id, product).then(function(result) {
 				return result;
 			});
