@@ -42,8 +42,10 @@ angular.module('ecommerceApp')
 			$scope.removeFromCart = function(product) {
 				$scope.cartProducts.forEach(function(item, index) {
 					console.log('item :', item);
-					if (product === item.item._id) {
-						$scope.cartProducts.splice(index, 1);
+					for (var key in localStorage) {
+						if (localStorage[key] === product) {
+							localStorage.removeItem(key);
+						}
 					}
 					$state.reload();
 				});
