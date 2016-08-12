@@ -41,7 +41,8 @@ angular.module('ecommerceApp')
 
 			$scope.removeFromCart = function(product) {
 				$scope.cartProducts.forEach(function(item, index) {
-					if (product === item.item) {
+					console.log('item :', item);
+					if (product === item) {
 						$scope.cartProducts.splice(index, 1);
 					}
 				});
@@ -49,11 +50,5 @@ angular.module('ecommerceApp')
 
 		}
 
-		// $scope.removeFromCart = function(product) {
-		// 	console.log(product);
-		// 	cartSvc.removeFromCart(authenticationSvc.currentUser().user_id, {item: product}).then(function(result) {
-		// 		$state.reload();
-		// 	});
-		// };
 });
 	
