@@ -34,7 +34,6 @@ angular.module('ecommerceApp')
 		}
 
 		$scope.removeFromCart = function() {
-			console.log(product);
 			cartSvc.removeFromCart(authenticationSvc.currentUser().user_id, '579c28a23a2c841100e0016d').then(function(result) {
 				$state.reload();
 			});
