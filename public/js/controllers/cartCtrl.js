@@ -42,7 +42,7 @@ angular.module('ecommerceApp')
 			$scope.removeFromCart = function(product) {
 				$scope.cartProducts.forEach(function(item, index) {
 					console.log('item :', item);
-					if (product === item) {
+					if (product === item.item._id) {
 						$scope.cartProducts.splice(index, 1);
 					}
 				});
