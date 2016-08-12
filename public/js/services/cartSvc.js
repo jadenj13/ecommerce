@@ -5,7 +5,7 @@ angular.module('ecommerceApp')
 
 		this.removeFromCart = function(user_id, product) {
 			return $http.put('/api/cart/' + user_id, product).then(function(result) {
-				return result;
+				console.log(result);
 			});
 		};
 
