@@ -45,6 +45,7 @@ angular.module('ecommerceApp')
 					if (product === item.item._id) {
 						$scope.cartProducts.splice(index, 1);
 					}
+					$state.reload();
 				});
 			}
 
