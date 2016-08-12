@@ -17,6 +17,13 @@ angular.module('ecommerceApp')
 					return total + price;
 				}, 0);
 			});
+
+			$scope.removeFromCart = function(product) {
+				cartSvc.removeFromCart(authenticationSvc.currentUser().user_id, {item: product}).then(function(result) {
+					$state.reload();
+			});
+
+		};
 		} else {
 			$scope.cartProducts = [];
 			for (var key in localStorage) {
@@ -31,13 +38,22 @@ angular.module('ecommerceApp')
 
 				});
 			}
+
+			$scope.removeFromCart = function(product) {
+				$scope.cartProducts.forEach(function(item, index) {
+					if (product === item.item) {
+						$scope.cartProducts.splice(index, 1);
+					}
+				});
+			}
+
 		}
 
-		$scope.removeFromCart = function(product) {
-			console.log(product);
-			cartSvc.removeFromCart(authenticationSvc.currentUser().user_id, {item: product}).then(function(result) {
-				$state.reload();
-			});
-		};
+		// $scope.removeFromCart = function(product) {
+		// 	console.log(product);
+		// 	cartSvc.removeFromCart(authenticationSvc.currentUser().user_id, {item: product}).then(function(result) {
+		// 		$state.reload();
+		// 	});
+		// };
 });
 	
