@@ -10,7 +10,7 @@ function postToCart(req, res) {
 }
 
 function deleteFromCart(req, res) {
-	User.findByIdAndUpdate(req.params.user_id, {$pull: {cart: req.body}}, function(err, result) {
+	User.findByIdAndUpdate(req.params.user_id, {$pull: {cart: req.body.item}}, function(err, result) {
 		if (err) return res.status(500).send(err);
 		else res.send(result);
 

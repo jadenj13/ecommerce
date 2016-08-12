@@ -33,8 +33,9 @@ angular.module('ecommerceApp')
 			}
 		}
 
-		$scope.removeFromCart = function() {
-			cartSvc.removeFromCart(authenticationSvc.currentUser().user_id, '579c28a23a2c841100e0016d').then(function(result) {
+		$scope.removeFromCart = function(product) {
+			console.log(product);
+			cartSvc.removeFromCart(authenticationSvc.currentUser().user_id, {item: product}).then(function(result) {
 				$state.reload();
 			});
 		};
