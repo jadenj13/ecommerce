@@ -53,6 +53,7 @@ angular.module('ecommerceApp')
 
 		if (cartProducts.length === 0) {
 			$scope.emptyCart = true;
+			console.log($scope.emptyCart);
 		}
 
 	});
