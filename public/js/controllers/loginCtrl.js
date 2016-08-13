@@ -24,6 +24,10 @@ angular.module('ecommerceApp')
 				$location.path('home');
 			}).catch(function() {
 				$scope.incorrectPassword = true;
+				$scope.credentials = {
+					email: '',
+					password: ''
+				};
 			});
 		};
 
