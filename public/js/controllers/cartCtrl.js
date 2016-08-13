@@ -3,12 +3,15 @@
 angular.module('ecommerceApp')
 	.controller('cartCtrl', function($scope, $state, profileSvc, authenticationSvc, productSvc, cartSvc) {
 
+		$scope.emptyCart = true;
+
 		if (authenticationSvc.isLoggedIn()) {
 			profileSvc.getProfile().then(function(result) {
 				$scope.cartProducts = [];
 				for (var key in result.data.cart) {
 					if (!isNaN(key)) {
 						$scope.cartProducts.push(result.data.cart[key]);
+						$scope.emptyCart = false
 					}
 				}
 
@@ -30,6 +33,8 @@ angular.module('ecommerceApp')
 				productSvc.getProduct(localStorage.getItem(key)).then(function(result) {
 					$scope.cartProducts.push({item: result[0]});
 
+					$scope.emptyCart = false;
+
 					$scope.total = $scope.cartProducts.reduce(function(total, current) {
 						var price = current.item.price;
 						return total + price;
@@ -49,11 +54,6 @@ angular.module('ecommerceApp')
 				});
 			}
 
-		}
-
-		if (cartProducts.length === 0) {
-			$scope.emptyCart = true;
-			console.log($scope.emptyCart);
 		}
 
 	});
