@@ -29,7 +29,6 @@ angular.module('ecommerceApp')
 			for (var key in localStorage) {
 				productSvc.getProduct(localStorage.getItem(key)).then(function(result) {
 					$scope.cartProducts.push({item: result[0]});
-					console.log($scope.cartProducts);
 
 					$scope.total = $scope.cartProducts.reduce(function(total, current) {
 						var price = current.item.price;
@@ -41,7 +40,6 @@ angular.module('ecommerceApp')
 
 			$scope.removeFromCart = function(product) {
 				$scope.cartProducts.forEach(function(item, index) {
-					console.log('item :', item);
 					for (var key in localStorage) {
 						if (localStorage[key] === product) {
 							localStorage.removeItem(key);

@@ -4,7 +4,9 @@ angular.module('ecommerceApp')
 	.controller('addProductCtrl', function($scope, addProductSvc, profileSvc, $location) {
 
 		profileSvc.getProfile().then(function(result) {
-			$scope.user = result.data;
+			if (!result.data.admin) {
+				$location.path('home');
+			}
 		}).catch(function() {
 			$location.path('home');
 		})
