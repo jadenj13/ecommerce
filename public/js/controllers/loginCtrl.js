@@ -14,13 +14,16 @@ angular.module('ecommerceApp')
 				for (var key in localStorage) {
 					if (key !== 'mean-token') {
 						productSvc.postToCart(authenticationSvc.currentUser().user_id, { item: localStorage[key]} ).then(function(result) {
-							return result
+							$scope.incorrectPassword = false;
+							return result;
 						});
 						localStorage.removeItem(key);
 					}
 				}
 
 				$location.path('home');
+			}).catch(function() {
+				$scope.incorrectPassword = true;
 			});
 		};
 
