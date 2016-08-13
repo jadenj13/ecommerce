@@ -21,9 +21,9 @@ angular.module('ecommerceApp')
 			$scope.removeFromCart = function(product) {
 				cartSvc.removeFromCart(authenticationSvc.currentUser().user_id, {item: product}).then(function(result) {
 					$state.reload();
-			});
+				});
 
-		};
+			};
 		} else {
 			$scope.cartProducts = [];
 			for (var key in localStorage) {
@@ -51,5 +51,9 @@ angular.module('ecommerceApp')
 
 		}
 
-});
+		if (cartProducts.length === 0) {
+			$scope.emptyCart = true;
+		}
+
+	});
 	
